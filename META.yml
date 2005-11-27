@@ -1,0 +1,18 @@
+---
+name: Catalyst-Plugin-Authentication-Credential-TypeKey
+version: 0.1
+author:
+  - 'Yuval Kogman, C<nothingmuch@woobling.org>'
+abstract: |-
+  TypeKey Authentication
+  for Catalyst.
+license: perl
+requires:
+  Authen::TypeKey: 1
+  Catalyst: 5.5
+  Catalyst::Plugin::Authentication: 0
+provides:
+  Catalyst::Plugin::Authentication::Credential::TypeKey:
+    file: lib/Catalyst/Plugin/Authentication/Credential/TypeKey.pm
+    version: 0.1
+generated_by: Module::Build version 0.2611

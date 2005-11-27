@@ -1,0 +1,30 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.50.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 2084f2556f500675daed3410f7314fa8d63e0c8c Build.PL
+SHA1 a9256b2936c02be540d18e9dded8939227326c72 MANIFEST
+SHA1 d2925eec0d0a7d990a474f325bba3f1dda722850 META.yml
+SHA1 a359d4072690a21ce63e4b393bdbc19d72b6be5a Makefile.PL
+SHA1 2468b2b420fc88e08c0fd18680da01bc8549411a README
+SHA1 2f28a40526107ec157752f440999a29b3fd733d4 lib/Catalyst/Plugin/Authentication/Credential/TypeKey.pm
+SHA1 0da24cf44c67ac0d681028965c99b6c96890bb1e t/basic.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.1 (Darwin)
+
+iD8DBQFDiiLsVCwRwOvSdBgRAvQ+AJoCHOj8y2axnQ1Hi6yBDhCtOTDVbQCfQb9f
+7jVll1JEmgkLcnT2Z4TeJAg=
+=Arus
+-----END PGP SIGNATURE-----
