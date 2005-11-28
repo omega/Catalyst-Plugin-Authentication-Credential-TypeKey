@@ -14,17 +14,17 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 2084f2556f500675daed3410f7314fa8d63e0c8c Build.PL
+SHA1 4844ecfa267766f6d2112f4ed2957745e3935495 Build.PL
 SHA1 a9256b2936c02be540d18e9dded8939227326c72 MANIFEST
-SHA1 d2925eec0d0a7d990a474f325bba3f1dda722850 META.yml
-SHA1 a359d4072690a21ce63e4b393bdbc19d72b6be5a Makefile.PL
+SHA1 5b23c1d222cca65f1e87b908f1e3a96bd687d3e0 META.yml
+SHA1 3232746815db1d42bfc3c9232c9ee49e7babeec1 Makefile.PL
 SHA1 2468b2b420fc88e08c0fd18680da01bc8549411a README
-SHA1 2f28a40526107ec157752f440999a29b3fd733d4 lib/Catalyst/Plugin/Authentication/Credential/TypeKey.pm
+SHA1 7d2ba837aad6f0bf11e2b42e1e50630f88d8b8fa lib/Catalyst/Plugin/Authentication/Credential/TypeKey.pm
 SHA1 0da24cf44c67ac0d681028965c99b6c96890bb1e t/basic.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.1 (Darwin)
 
-iD8DBQFDiiLsVCwRwOvSdBgRAvQ+AJoCHOj8y2axnQ1Hi6yBDhCtOTDVbQCfQb9f
-7jVll1JEmgkLcnT2Z4TeJAg=
-=Arus
+iD8DBQFDiuGjVCwRwOvSdBgRAs9aAJwI1P+o8laadqfHTv20lHQsRxDmnwCcDwtR
+873V+7ZPngFr5bZBg6G8/ng=
+=IjsQ
 -----END PGP SIGNATURE-----

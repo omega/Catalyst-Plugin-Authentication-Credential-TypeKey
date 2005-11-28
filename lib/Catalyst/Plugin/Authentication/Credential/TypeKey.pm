@@ -10,7 +10,7 @@ use NEXT;
 use UNIVERSAL::require;
 use Scalar::Util ();
 
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 sub setup {
     my $c = shift;
