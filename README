@@ -26,6 +26,7 @@ SYNOPSIS
                     }
             }
 
+
             sub auto : Private {
                     my ( $self, $c ) = @_;
 
@@ -34,33 +35,15 @@ SYNOPSIS
                     return 1;
             }
 
-TYPEKEY BROKED-NESS
-    Please watch:
-
-            http://rt.cpan.org/NoAuth/Bugs.html?Dist=Authen-TypeKey
-
-    I could only get this to properly work with TypeKey version 1 (not 1.1).
-
-    To get around this problem configure the plugin to use version 1:
-
-            __PACKAGE__->config(
-                    authentication => {
-                            typekey => {
-                                    version => 1,
-                                    token => ..., # doesn't really matter in version 1
-                            },
-                    },
-            );
-
 DESCRIPTION
     This module integrates Authen::TypeKey with
     Catalyst::Plugin::Authentication.
 
 METHODS
-    authenticate_typekey %parameters
-    authenticate_typekey
-    EXTENDED METHODS
-    setup
+   authenticate_typekey %parameters
+   authenticate_typekey
+   EXTENDED METHODS
+   setup
     Fills the config with defaults.
 
 CONFIGURATION
@@ -88,7 +71,7 @@ CONFIGURATION
 
         When a user is successfully authenticated it will call this:
 
-                $store->get_user( $parameters, $result_of_verify );
+                $store->get_user( $name, $parameters, $result_of_verify );
 
         Where $parameters is a the hash reference passed to "verify" in
         Authen::TypeKey, and $result_of_verify is the value returned by

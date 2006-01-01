@@ -43,7 +43,7 @@ $tk->mock(
 
 my $store = Test::MockObject->new;
 $store->mock( get_user =>
-      sub { shift; Catalyst::Plugin::Authentication::User::Hash->new(@_) } );
+      sub { shift; Catalyst::Plugin::Authentication::User::Hash->new($_[2]) } );
 
 my $c = Test::MockObject::Extends->new($m);
 $c->set_always( config => {} );

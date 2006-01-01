@@ -10,7 +10,7 @@ use NEXT;
 use UNIVERSAL::require;
 use Scalar::Util ();
 
-our $VERSION = '0.2';
+our $VERSION = '0.3';
 
 sub setup {
     my $c = shift;
@@ -73,7 +73,7 @@ sub authenticate_typekey {
 
         if ( !$user and my $store = $config->{auth_store} ) {
             $store = $c->get_auth_store($store) unless ref $store;
-            $user = $store->get_user( $p, $res );
+            $user = $store->get_user( $res->{name}, $p, $res );
         }
 
         if ( !$user ) {
@@ -140,25 +140,6 @@ for Catalyst.
 		return 1;
 	}
 
-=head1 TYPEKEY BROKED-NESS
-
-Please watch:
-
-	http://rt.cpan.org/NoAuth/Bugs.html?Dist=Authen-TypeKey
-
-I could only get this to properly work with TypeKey version 1 (not 1.1).
-
-To get around this problem configure the plugin to use version 1:
-
-	__PACKAGE__->config(
-		authentication => {
-			typekey => {
-				version => 1,
-				token => ..., # doesn't really matter in version 1
-			},
-		},
-	);
-
 =head1 DESCRIPTION
 
 This module integrates L<Authen::TypeKey> with
@@ -166,13 +147,13 @@ L<Catalyst::Plugin::Authentication>.
 
 =head1 METHODS
 
-=item authenticate_typekey %parameters
+=head3 authenticate_typekey %parameters
 
-=item authenticate_typekey
+=head3 authenticate_typekey
 
-=item EXTENDED METHODS
+=head3 EXTENDED METHODS
 
-=item setup
+=head3 setup
 
 Fills the config with defaults.
 
@@ -211,7 +192,7 @@ A store (or store name) to retrieve the user from.
 
 When a user is successfully authenticated it will call this:
 
-	$store->get_user( $parameters, $result_of_verify );
+	$store->get_user( $name, $parameters, $result_of_verify );
 
 Where C<$parameters> is a the hash reference passed to
 L<Authen::TypeKey/verify>, and C<$result_of_verify> is the value returned by

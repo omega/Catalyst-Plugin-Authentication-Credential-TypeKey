@@ -7,7 +7,8 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Authen::TypeKey' => '0',
                            'Catalyst' => '5.5',
-                           'Catalyst::Plugin::Authentication' => '0'
+                           'Catalyst::Plugin::Authentication' => '0',
+                           'Test::MockObject' => '1.01'
                          },
           'INSTALLDIRS' => 'site',
           'PL_FILES' => {}

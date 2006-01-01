@@ -9,7 +9,7 @@ my $build = Module::Build->new(
         'Catalyst'                         => '5.5',
         'Catalyst::Plugin::Authentication' => 0,
         'Authen::TypeKey'                  => 0,
-
+        'Test::MockObject'                 => '1.01',
     },
     create_readme => 1,
     sign          => 1,
