@@ -1,19 +1,20 @@
----
-name: Catalyst-Plugin-Authentication-Credential-TypeKey
-version: 0.3
-author:
-  - 'Yuval Kogman, C<nothingmuch@woobling.org>'
-abstract: |-
-  TypeKey Authentication
-  for Catalyst.
+--- 
+abstract: TypeKey Authentication
+author: Christian Hansen
+distribution_type: module
+generated_by: Module::Install version 0.67
 license: perl
-requires:
+meta-spec: 
+  url: http://module-build.sourceforge.net/META-spec-v1.3.html
+  version: 1.3
+name: Catalyst-Plugin-Authentication-Credential-TypeKey
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
   Authen::TypeKey: 0
-  Catalyst: 5.5
   Catalyst::Plugin::Authentication: 0
-  Test::MockObject: 1.01
-provides:
-  Catalyst::Plugin::Authentication::Credential::TypeKey:
-    file: lib/Catalyst/Plugin/Authentication/Credential/TypeKey.pm
-    version: 0.3
-generated_by: Module::Build version 0.2611
+  Catalyst::Runtime: 0
+  Test::MockObject: 0
+version: 0.4

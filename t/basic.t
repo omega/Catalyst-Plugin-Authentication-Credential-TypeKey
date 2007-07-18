@@ -26,20 +26,54 @@ my $req = Test::MockObject->new;
 $req->set_always( params => {} );
 $req->mock( param => sub { $_[0]->params->{ $_[1] } } );
 
-my $tk = Test::MockObject->new;
-$tk->mock(
-    "verify",
-    sub {
-        my ( $self, $p ) = @_;
+{
+    package MockTypeKey; # this is cloneable, Test::MockObject isn't
 
-        if ( blessed($p) ) {
+    sub new { bless {}, shift };
+
+    sub verify {
+        my ( $self, $p ) = @_;
+        $self->{_called}{verify}++;
+
+        return $self->{_rvalue}{verify} if exists $self->{_rvalue}{verify};
+
+        if ( ::blessed($p) ) {
             return \%user if ( $p->param("sig") );
         }
         else {
             return \%user if ( $p->{sig} );
         }
     }
-);
+    
+    sub set_false {
+        shift->set_always( shift, 0 )
+    }
+    
+    sub set_true {
+        shift->set_always( shift, 1 )
+    }
+
+    sub set_always {
+        my ( $self, $method, $value ) = @_;
+        $self->{_rvalue}{$method} = $value;
+    }
+
+    sub token {
+        my $self = shift;
+        $self->{token} = shift if @_;
+        $self->{token};
+    }
+
+    sub clear { $_[0]{_called} = {} }
+
+    sub called_ok {
+        my ( $self, $method, $desc ) = @_;
+        $desc ||= "called $method";
+        ::ok( $self->{_called}{$method}, $desc );
+    }
+}
+
+my $tk = MockTypeKey->new;
 
 my $store = Test::MockObject->new;
 $store->mock( get_user =>
@@ -55,13 +89,14 @@ $c->set_false("debug");
 
 my $authenticated;
 $c->mock( set_authenticated => sub { $authenticated = $_[1] } );
+$c->mock( logout => sub { undef $authenticated } );
 
 can_ok( $m, "setup" );
 
 $c->setup;
 
 isa_ok( $config->{typekey_object},
-    "Authen::TypeKey", '$c->config->{authentication}{typekey}{obj}' );
+    "Authen::TypeKey", '$c->config->{authentication}{typekey}{typekey_object}' );
 
 $config->{typekey_object} = $tk;
 
@@ -130,3 +165,15 @@ ok(
 );
 
 $c->called_ok("set_authenticated");
+
+can_ok( $c, "last_typekey_object" );
+
+is( $c->last_typekey_object->token, undef, "token is default" );
+
+$c->authenticate_typekey( $user, token => "elk" );
+
+is( $c->last_typekey_object->token, "elk", "token is altered in last typekey object" );
+
+is( $config->{typekey_object}->token, undef, "but not in the default one" );
+
+can_ok( $c, "last_typekey_error" );
