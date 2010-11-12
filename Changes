@@ -1,7 +1,7 @@
-0.05    2010-11-12 07:43:00+0100
+0.5    2010-11-12 07:43:00+0100
         - Remove usage of NEXT, switch to MRO::Compat
 
-0.04    XXX
+0.4    XXX
         - refactor some yuckiness
         - Locally override pluginn configuration (user_class, etc)
         - Locally override typekey configuration (token, etc)
@@ -10,7 +10,7 @@
         - use Catalyst::Utils::ensure_class_loaded instead of UNIVERSAL::require
         - Switch to Module::Install
 
-0.03    2006-01-01 13:35:00
+0.3    2006-01-01 13:35:00
         - $store->get_user now gets the user name as the first arg for maximum
           compatibility with stores.
         - Doc fixes

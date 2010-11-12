@@ -12,7 +12,7 @@ use Scalar::Util ();
 use Storable     ();
 use Carp qw/croak/;
 
-our $VERSION = '0.4';
+our $VERSION = '0.5';
 
 # Authen::TypeKey's configuration parameters
 # FIXME these might change in future versions of Authen::Typekey
