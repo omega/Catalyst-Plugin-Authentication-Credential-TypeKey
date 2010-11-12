@@ -7,6 +7,7 @@ requires 'Catalyst::Runtime';
 requires 'Catalyst::Plugin::Authentication';
 requires 'Test::MockObject';
 requires 'Authen::TypeKey';
+requires 'MRO::Compat';
 
 auto_install;
 WriteAll;

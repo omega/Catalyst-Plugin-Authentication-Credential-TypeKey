@@ -1,3 +1,6 @@
+0.05    2010-11-12 07:43:00+0100
+        - Remove usage of NEXT, switch to MRO::Compat
+
 0.04    XXX
         - refactor some yuckiness
         - Locally override pluginn configuration (user_class, etc)
