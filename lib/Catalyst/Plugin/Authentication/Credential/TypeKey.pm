@@ -7,7 +7,7 @@ use warnings;
 use Authen::TypeKey;
 use File::Spec;
 use Catalyst::Utils ();
-use NEXT;
+use MRO::Compat;
 use Scalar::Util ();
 use Storable     ();
 use Carp qw/croak/;
@@ -49,7 +49,7 @@ sub setup {
         $typekey;
     };
 
-    $c->NEXT::setup(@_);
+    $c->maybe::next::method(@_);
 }
 
 sub _munge_typekey_params {
